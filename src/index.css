@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background-color: #eae7d4;
+  overflow: hidden;
+}
+
+.bgColor{
+  background-color: #2a3037;
+}
