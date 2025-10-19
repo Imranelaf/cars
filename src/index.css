@@ -1,15 +1,53 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
   background-color: #eae7d4;
   overflow: hidden;
 }
 
+h1{
+  margin-top: 1rem;
+}
+
 .bgColor{
   background-color: #2a3037;
+}
+
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 990;
+  font-style: normal;
+  font-size: 6rem;
+  color: #eae7d4;
+}
+
+
+
+@keyframes squeeze {
+  0%, 100% {
+    transform: scale(1);
+    color: #eae7d4;
+  }
+  50% {
+    transform: scale(0.5);
+    color: red;
+  }
+  75% {
+    transform: scale(0.5);
+    color: red;
+  }
+}
+
+.squizingLetter {
+  display: inline-block;
+}
+
+li:hover .squizingLetter {
+  animation: squeeze 0.2s ease-in-out forwards;
 }
