@@ -8,7 +8,7 @@
 
 body {
   background-color: #eae7d4;
-  overflow: hidden;
+  
 }
 
 h1{
@@ -23,7 +23,8 @@ h1{
   font-family: "Luckiest Guy", cursive;
   font-weight: 990;
   font-style: normal;
-  font-size: 6rem;
+}
+.baseColor{
   color: #eae7d4;
 }
 
@@ -48,6 +49,16 @@ h1{
   display: inline-block;
 }
 
-li:hover .squizingLetter {
+.squizingLetter:hover {
   animation: squeeze 0.4s ease-in-out forwards;
 }
+
+/* VideoCards Component Styles */
+
+.scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }

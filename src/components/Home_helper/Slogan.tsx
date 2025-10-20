@@ -4,7 +4,7 @@ export default function Slogan(){
 
     return(
         <section className=" w-[80vw] h-screen flex justify-evenly">
-            <div className="luckiest-guy-regular flex flex-col items-center">
+            <div className="luckiest-guy-regular flex flex-col items-center text-8xl baseColor">
             <h1 >Life's a journey</h1>
             <h1 className="text-9xl tracking-wider italic text-red-500">Enjoy</h1>
             <div className="flex gap-4 h-auto items-center">
