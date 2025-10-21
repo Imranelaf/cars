@@ -19,9 +19,15 @@ h1{
   background-color: #2a3037;
 }
 
-.luckiest-guy-regular {
+.luckiest-guy-bold {
   font-family: "Luckiest Guy", cursive;
   font-weight: 990;
+  font-style: normal;
+}
+
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 700;
   font-style: normal;
 }
 .baseColor{
@@ -48,6 +54,9 @@ h1{
 .squizingLetter {
   display: inline-block;
 }
+li:hover .squizingLetter {
+  animation: squeeze 0.2s ease-in-out forwards;
+}
 
 .squizingLetter:hover {
   animation: squeeze 0.4s ease-in-out forwards;
@@ -55,10 +64,6 @@ h1{
 
 /* VideoCards Component Styles */
 
-.scrollbar-hide::-webkit-scrollbar {
-                    display: none;
-                }
-                .scrollbar-hide {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
+.hideScrollBare::-webkit-scrollbar {
+  display: none;
+}

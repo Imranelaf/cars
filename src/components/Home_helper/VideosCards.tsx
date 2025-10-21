@@ -17,51 +17,52 @@ const data = [
         para: "Accident"
     },
     {
-        src: '1.mp4',
+        src: '4.mp4',
         title: 'finish line',
-        para: "Win?"
+        para: "Is he win?"
     },
 ]
 
 export default function VideosCards() {
-    const videorefs = useRef([]);
 
-    const handleMouseEnter = (index) => {
-        if (videorefs.current[index]) {
-            videorefs.current[index].play();
-        }
-    };
+    const videoRef = useRef([])
 
-    const handleMouseLeave = (index) => {
-        if (videorefs.current[index]) {
-            videorefs.current[index].pause();
-            videorefs.current[index].currentTime = 0;
-        }
-    };
+    const playVideo = (index)=>{
+        videoRef.current && videoRef.current[index].play()
+    }
 
-    return (
-        <div className="w-full h-screen flex flex-col gap-5 overflow-y-auto p-5 scrollbar-hide">
-           
-            {
-                data.map((item, index) => (
-                    <div 
-                        key={`${item.src}-${index}`} 
-                        className="bg-[#eae7d4] p-4 w-5/12 rounded-sm flex flex-col items-center cursor-pointer text-red-500 hover:squizingLetter hover:bg-red-500 hover:!text-[#eae7d4] flex-shrink-0"
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={() => handleMouseLeave(index)}
-                    >
-                        <video
-                            src={`./videos/${item.src}`}
-                            className="rounded-sm w-full"
-                            ref={(el) => videorefs.current[index] = el}
-                            muted
-                            playsInline
-                        />
-                        <h1 className="tracking-wider text-larg text-black font-bold">{item.title}</h1>
-                        <h1 className="luckiest-guy-regular text-3xl tracking-widest italic">{item.para}</h1>
-                    </div>
-                ))
-            }
+    const pausedVideo = (index)=>{
+        if(videoRef.current){ 
+            videoRef.current[index].pause()
+            videoRef.current[index].currentTime = 0 
+        }}
+   return(
+            
+        <div className="w-full h-screen flex flex-col gap-5 overflow-auto hideScrollBare ">
+
+           {
+            data.map((item,index)=>(
+
+                <div key={item.src}
+                className="lg:w-5/12 w-full h-[20vh] luckiest-guy-regular rounded-sm h-auto bg-[#eae7d4] text-red-500 p-1 lg:p-4 text-center cursor-pointer  hover:bg-red-500 hover:text-[#eae7d4] duration-500"
+                onMouseEnter={()=>playVideo(index)}
+                onMouseLeave={()=>pausedVideo(index)}
+                >
+                    <video src={`./videos/${item.src}`}
+                    className="h-auto w-full rounded-sm"
+                    ref={(el) => videoRef.current[index] = el}
+                    muted
+                    playsInline
+                    />
+                    <h1 className="lg:text-2xl font-semibold text-black">{item.title}</h1>
+                    <p className="lg:text-5xl text-2xl font-extrabold ">{item.para}</p>
+
+
+
+                </div>
+            ))
+           }
+
         </div>
-    )
-}
+
+   )}

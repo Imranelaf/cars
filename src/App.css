@@ -1,12 +1,25 @@
-.scrollingBar{
-    animation: scroll 10s linear infinite;
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-85%);
+    }
 }
 
-@keyframes scroll {
+@keyframes scroll-vertical {
     0% {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-45%);
+        transform: translateY(-50%);
     }
+}
+
+.animate-scroll {
+    animation: scroll 5s linear infinite;
+}
+
+.animate-scroll-vertical {
+    animation: scroll-vertical 20s linear infinite;
 }
