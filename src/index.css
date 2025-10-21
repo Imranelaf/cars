@@ -6,18 +6,35 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #eae7d4;
-  
+@font-face {
+  font-family: 'Grand-Regular';
+  src: url('/fonts/NTF-Grand-Regular.otf') format('opentype'),
+    url('/fonts/NTF-Grand-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-h1{
+body {
+  background-color: #eae7d4;
+
+}
+
+h1 {
   margin-top: 1rem;
 }
 
-.bgColor{
+.bgColor {
   background-color: #2a3037;
 }
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../public/fonts/NTF-Grand-Regular.otf') format('woff2'),
+    url('../public/fonts/NTF-Grand-Italic.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .luckiest-guy-bold {
   font-family: "Luckiest Guy", cursive;
@@ -30,21 +47,34 @@ h1{
   font-weight: 700;
   font-style: normal;
 }
-.baseColor{
+
+p {
   color: #eae7d4;
+
+}
+
+h6 {
+  color: #eae7d4;
+  font-family: 'Grand-Regular', sans-serif;
+  letter-spacing: .05rem;
+
 }
 
 
 
 @keyframes squeeze {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     color: #eae7d4;
   }
+
   50% {
     transform: scale(0.5);
     color: red;
   }
+
   75% {
     transform: scale(0.8);
     color: red;
@@ -54,6 +84,7 @@ h1{
 .squizingLetter {
   display: inline-block;
 }
+
 li:hover .squizingLetter {
   animation: squeeze 0.2s ease-in-out forwards;
 }
@@ -66,4 +97,18 @@ li:hover .squizingLetter {
 
 .hideScrollBare::-webkit-scrollbar {
   display: none;
+}
+
+
+
+/* styling for Informations.tsx componente */
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.imageRotation {
+  animation: rotation 20s infinite linear;
 }

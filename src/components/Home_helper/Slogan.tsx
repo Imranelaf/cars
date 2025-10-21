@@ -3,7 +3,7 @@ import '../../App.css'
 export default function Slogan() {
 
     return (
-        <section className="h-screen w-10/12 luckiest-guy-bold text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
+        <section className="h-screen lg:w-10/12 w-full luckiest-guy-bold text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
             <div className="h-full flex flex-col lg:flex-row lg:justify-between">
                 {/* Main content */}
                 <div className="flex-1 flex items-center justify-center">
@@ -25,7 +25,7 @@ export default function Slogan() {
                     {/* Small screens */}
                     <div className="lg:hidden text-[#eae7d4] flex flex-col items-center w-full px-4">
                         <h1>Life's Journey</h1>
-                        <h1 className='text-5xl text-red-500 italic'>Enjoy</h1>
+                        <h1 className='text-5xl !text-red-500 italic'>Enjoy</h1>
                         <h1>The ride</h1>
                         <img
                             src="./images/mcqueen.gif"
