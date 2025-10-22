@@ -1,5 +1,6 @@
 import { useRef } from "react"
-import Infos from "../Informations"
+import Infos from "./Informations"
+
 
 const data = [
     {
