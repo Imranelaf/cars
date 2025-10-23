@@ -1,7 +1,8 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export default function Images() {
-
-    const data = [
+const data = [
         {
             name: 'Lightning mcQueen',
             image: 'McQueen.webp'
@@ -28,17 +29,50 @@ export default function Images() {
         },
     ]
 
+export default function Images() {
+    
+    useGSAP(()=>{
+
+        gsap.registerPlugin(ScrollTrigger);
+       /*  gsap.set('.panel', {opacity:.5}) */
+
+        const sections = gsap.utils.toArray('.panel');
+
+        gsap.to(sections,{
+            xPercent: -86 * (sections.length - 2),
+            scrollTrigger:{
+                trigger: '.imagesContainer',
+                pin:true,
+                scrub:2,
+            },
+        });
+
+        /* sections.forEach(()=>{
+            gsap.to('.panel', {opacity:1})
+        }) */
+
+        
+
+        
+
+    })
+
+    
+    
+ 
+    
     return (
-        <div className="min-h-screen h-fit w-full font-extrabold ">
-            <h6 className="text-8xl m-8">Characters</h6>
-            <h6 className="text-9xl !text-red-500 ">Posters</h6>
-            <div className="h-auto w-auto p-4 lg:flex gap-8 ">
+        <div className="min-h-screen imagesContainer h-fit w-full font-extrabold ">
+            <h6 className="lg:text-8xl text-6xl mx-8">Characters</h6>
+            <h6 className="lg:text-9xl text-6xl mx-4 !text-red-500 ">Posters</h6>
+            <div className="overflow-x-hidden ">
+            <div className="h-auto w-fit p-4 lg:flex lg:gap-8 images">
 
                 {
                     data.map((item) => (
-                        <div className="w-full mt-3">
+                        <div key={item.name} className="w-full mt-3 panel">
                         <img 
-                                key={item.name}
+                                
                         src={`./images/Posters/${item.image}`}
                         alt={`${item.name}`}
                         className="rounded-xl lg:min-w-120 h-110"
@@ -50,6 +84,7 @@ export default function Images() {
 
 
 
+            </div>
             </div>
 
         </div>
