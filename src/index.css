@@ -112,3 +112,15 @@ li:hover .squizingLetter {
 .imageRotation {
   animation: rotation 20s infinite linear;
 }
+
+
+/* Styling for ImagesPoster.tsx */
+
+.hideScrollBare {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hideScrollBare::-webkit-scrollbar {
+  display: none;
+}

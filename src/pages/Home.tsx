@@ -1,3 +1,4 @@
+import Images from "../components/Home_helper/ImagesPosters";
 import Slogan from "../components/Home_helper/Slogan";
 import VideosCards from "../components/Home_helper/VideosCards";
 import NavBar from "../components/NavBar";
@@ -8,6 +9,7 @@ export default function Home() {
       <NavBar />
       <Slogan />
       <VideosCards />
+      <Images />
     </div>
   );
 }
