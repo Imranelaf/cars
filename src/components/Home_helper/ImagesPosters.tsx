@@ -70,12 +70,12 @@ export default function Images() {
 
                 {
                     data.map((item) => (
-                        <div key={item.name} className="w-full mt-3 panel">
+                        <div key={item.name} className="w-full mt-3 panel ">
                         <img 
-                                
+                        loading="lazy"        
                         src={`./images/Posters/${item.image}`}
                         alt={`${item.name}`}
-                        className="rounded-xl lg:min-w-120 h-110"
+                        className="rounded-xl lg:min-w-120 h-110 hover:border-4 cursor-pointer hover:border-red-500 duration-200"
                         />
                                 <h6 className="text-center text-2xl border-2 border-red-500 rounded-xl mt-1">{item.name}</h6>
                                 </div>
