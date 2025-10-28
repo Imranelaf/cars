@@ -34,7 +34,6 @@ export default function Images() {
     useGSAP(()=>{
 
         gsap.registerPlugin(ScrollTrigger);
-       /*  gsap.set('.panel', {opacity:.5}) */
 
         const sections = gsap.utils.toArray('.panel');
 
@@ -44,16 +43,9 @@ export default function Images() {
                 trigger: '.imagesContainer',
                 pin:true,
                 scrub:2,
+                
             },
         });
-
-        /* sections.forEach(()=>{
-            gsap.to('.panel', {opacity:1})
-        }) */
-
-        
-
-        
 
     })
 

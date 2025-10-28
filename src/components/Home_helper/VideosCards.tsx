@@ -1,6 +1,8 @@
 import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Infos from "./Informations"
-
 
 const data = [
     {
@@ -28,6 +30,7 @@ const data = [
 export default function VideosCards() {
 
     const videoRef = useRef([])
+   
 
     const playVideo = (index)=>{
         videoRef.current && videoRef.current[index].play()
@@ -38,25 +41,46 @@ export default function VideosCards() {
             videoRef.current[index].pause()
             videoRef.current[index].currentTime = 0 
         }}
+
+
+    useGSAP(()=>{
+        gsap.registerPlugin(ScrollTrigger)
+        const videosNum = gsap.utils.toArray('.videos');
+
+        gsap.to(videosNum,{
+            yPercent: -90 * (videosNum.length - 1),
+            ease: 'none',
+            scrollTrigger:{
+                trigger: '.videoContainer',
+                pin: true,
+                scrub: 1,
+                start:'top top',
+                end:`+=${window.innerHeight * (videosNum.length - 1)}`,
+               
+            }
+        })
+    }, [])
+
+
    return(
-            <section className="w-fit lg:flex ">
-        <div className="relative lg:w-1/2 w-full h-screen flex flex-col gap-5 overflow-auto hideScrollBare ">
+        <section className="w-fit lg:flex videoContainer">
+            <div className="relative lg:w-1/2 w-full h-screen videoTrigger flex flex-col gap-5 overflow-hidden">
 
            {
             data.map((item,index)=>(
 
                 <div key={item.src}
-                className="w-full h-[20vh] luckiest-guy-regular rounded-sm h-auto bg-[#eae7d4] text-red-500 p-1 lg:p-4 text-center cursor-pointer  hover:bg-red-500 hover:text-[#eae7d4] duration-500"
+                className="w-full h-screen videos rounded-sm bg-[#eae7d4] text-red-500 p-1 lg:p-4 text-center cursor-pointer hover:bg-red-500 hover:text-[#eae7d4] duration-500 flex flex-col justify-center items-center"
                 onMouseEnter={()=>playVideo(index)}
                 onMouseLeave={()=>pausedVideo(index)}
                 >
                     <video src={`./videos/${item.src}`}
-                    className="h-auto w-full rounded-sm"
+                    className="h-auto w-full rounded-sm max-h-[60vh]"
                     ref={(el) => videoRef.current[index] = el}
                     muted
                     playsInline
                     />
-                    <h1 className="lg:text-2xl font-semibold !text-black">{item.title}</h1>
+                    <h1 className="lg:text-2xl font-semibold !text-black mt-4">{item.title}</h1>
                     <h2 className="lg:text-5xl text-2xl font-extrabold ">{item.para}</h2>
 
 
@@ -73,4 +97,5 @@ export default function VideosCards() {
            </div>
         </section>
 
-   )}
+   )
+}
