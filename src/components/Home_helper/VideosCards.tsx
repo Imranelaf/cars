@@ -52,7 +52,7 @@ export default function VideosCards() {
             ease: 'none',
             scrollTrigger:{
                 trigger: '.videoContainer',
-                pin: true,
+               pin:true,
                 scrub: 1,
                 start:'top top',
                 end:`+=${window.innerHeight * (videosNum.length - 1)}`,
@@ -63,7 +63,7 @@ export default function VideosCards() {
 
 
    return(
-        <section className="w-fit lg:flex videoContainer">
+        <section className="w-screen lg:flex bg-yellow-500 videoContainer">
             <div className="relative lg:w-1/2 w-full h-screen videoTrigger flex flex-col gap-5 overflow-hidden">
 
            {

@@ -41,7 +41,7 @@ export default function Images() {
             xPercent: -86 * (sections.length - 2),
             scrollTrigger:{
                 trigger: '.imagesContainer',
-                pin:true,
+               pin:true,
                 scrub:2,
                 
             },

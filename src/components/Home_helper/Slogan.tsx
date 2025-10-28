@@ -3,8 +3,8 @@ import '../../App.css'
 export default function Slogan() {
 
     return (
-        <section className="h-screen lg:w-10/12 w-full luckiest-guy-bold text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
-            <div className="h-full flex flex-col lg:flex-row lg:justify-between">
+        <section className="h-screen w-[90vw] w-full luckiest-guy-bold text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
+            <div className="h-full flex flex-col w-full lg:flex-row lg:justify-between">
                 {/* Main content */}
                 <div className="flex-1 flex items-center justify-center">
                     {/* Large screens */}
