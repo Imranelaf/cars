@@ -63,7 +63,7 @@ export default function VideosCards() {
 
 
    return(
-        <section className="w-screen lg:flex bg-yellow-500 videoContainer">
+        <section className="w-screen lg:flex videoContainer">
             <div className="relative lg:w-1/2 w-full h-screen videoTrigger flex flex-col gap-5 overflow-hidden">
 
            {

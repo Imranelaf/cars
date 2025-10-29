@@ -2,7 +2,7 @@
 
 export default function Infos(){
     return(
-        <div className="w-full h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-screen informations flex flex-col justify-center items-center">
             <img src="./images/curved-text.webp" alt="PIXAR CURVED TEXT"
             className="w-60 lg:w-auto imageRotation"
              

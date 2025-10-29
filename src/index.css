@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 
 @tailwind base;
@@ -10,6 +9,13 @@
   font-family: 'Grand-Regular';
   src: url('/fonts/NTF-Grand-Regular.otf') format('opentype'),
     url('/fonts/NTF-Grand-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chunko';
+  src: url('/fonts/Chunko Bold Demo.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,23 +33,15 @@ h1 {
   background-color: #2a3037;
 }
 
-@font-face {
-  font-family: 'MyCustomFont';
-  src: url('../public/fonts/NTF-Grand-Regular.otf') format('woff2'),
-    url('../public/fonts/NTF-Grand-Italic.otf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
-
-.luckiest-guy-bold {
-  font-family: "Luckiest Guy", cursive;
+.chunko-bold {
+  font-family: "Chunko", sans-serif;
   font-weight: 990;
   font-style: normal;
 }
 
-.luckiest-guy-regular {
-  font-family: "Luckiest Guy", cursive;
+.chunko {
+  font-family: "Chunko", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -53,11 +51,27 @@ p {
 
 }
 
-h6 {
+
+.slogan h1{
+   font-family: "Chunko", sans-serif;
+  font-weight: 990;
+  font-style: normal;
+  letter-spacing: .5rem;
+
+}
+
+.informations h6 {
   color: #eae7d4;
   font-family: 'Grand-Regular', sans-serif;
   letter-spacing: .05rem;
 
+}
+
+.hit{
+  font-family: 'Chunko', sans-serif;
+  letter-spacing: 1rem;
+  font-weight: 900;
+  
 }
 
 
@@ -125,3 +139,7 @@ li:hover .squizingLetter {
   display: none;
 }
 
+
+.hitUs{
+  background-color: #eae7d4;
+}

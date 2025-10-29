@@ -3,8 +3,17 @@ import '../../App.css'
 export default function Slogan() {
 
     return (
-        <section className="h-screen w-[90vw] w-full luckiest-guy-bold text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
-            <div className="h-full flex flex-col w-full lg:flex-row lg:justify-between">
+        <section className="h-screen w-screen slogan text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
+            <div className="h-full flex flex-col w-full lg:flex-row lg:justify-between lg:px-8">
+                {/* Left Scrolling bar for large screens */}
+                <div className='hidden lg:block border-2 border-[#eae7d4] overflow-hidden w-14 my-4 h-10/12 rounded-sm'>
+                    <div className="flex flex-col gap-9 items-center animate-scroll-vertical">
+                        {Array.from({ length: 16 }).map((_, index) => (
+                            <p key={index} className="text-[#eae7d4] text-base tracking-wider font-semibold whitespace-nowrap rotate-180" style={{writingMode: 'vertical-rl'}}>PIXAR</p>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Main content */}
                 <div className="flex-1 flex items-center justify-center">
                     {/* Large screens */}
@@ -42,7 +51,7 @@ export default function Slogan() {
                     </div>
                 </div>
 
-                {/* Scrolling bar for large screens */}
+                {/* Right Scrolling bar for large screens */}
                 <div className='hidden lg:block border-2 border-[#eae7d4] overflow-hidden w-14 my-4 h-10/12 rounded-sm'>
                     <div className="flex flex-col gap-9 items-center animate-scroll-vertical">
                         {Array.from({ length: 16 }).map((_, index) => (
