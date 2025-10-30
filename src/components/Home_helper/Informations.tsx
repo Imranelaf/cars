@@ -5,6 +5,7 @@ export default function Infos(){
         <div className="w-full h-screen informations flex flex-col justify-center items-center">
             <img src="./images/curved-text.webp" alt="PIXAR CURVED TEXT"
             className="w-60 lg:w-auto imageRotation"
+            draggable='false'
              
             />
             <h6 className="lg:m-4 m-2 text-center lg:text-3xl">

@@ -7,10 +7,10 @@ import HitUsUp from "../components/Home_helper/HitUsUp";
 export default function Home() {
 
   return (
-    <div className="relative bgColor h-max  w-full">
-       <Slogan />
+    <div className="relative bgColor h-max  w-full overflow-x-hidden">
+      <Slogan />
       <VideosCards />
- {/*      <Images />  */}
+      <Images />
       <HitUsUp />
 
     </div>

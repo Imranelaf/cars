@@ -26,6 +26,7 @@ export default function Slogan() {
                                 src="./images/mcqueen.gif"
                                 alt="Winking"
                                 className="w-70"
+                                draggable='false'
                             />
                             <h1>Ride</h1>
                         </div>
@@ -40,6 +41,7 @@ export default function Slogan() {
                             src="./images/mcqueen.gif"
                             alt="Winking"
                             className="w-50"
+                            draggable='false'
                         />
                         <div className='w-full text-base overflow-hidden my-4 p-1 border-2 rounded-sm'>
                             <div className="flex gap-4 animate-scroll">

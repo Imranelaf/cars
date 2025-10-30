@@ -67,6 +67,7 @@ export default function Images() {
                         loading="lazy"        
                         src={`./images/Posters/${item.image}`}
                         alt={`${item.name}`}
+                        draggable='false'
                         className="rounded-xl lg:min-w-120 h-110 hover:border-4 cursor-pointer hover:border-red-500 duration-200"
                         />
                                 <h6 className="text-center text-2xl border-2 border-red-500 rounded-xl mt-1">{item.name}</h6>
