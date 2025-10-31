@@ -1,6 +1,5 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import imagesPostersAnimation from "./Animations/ImagesPostersAnimation"
+
 
 const data = [
         {
@@ -31,27 +30,7 @@ const data = [
 
 export default function Images() {
     
-    useGSAP(()=>{
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        const sections = gsap.utils.toArray('.panel');
-
-        gsap.to(sections,{
-            xPercent: -86 * (sections.length - 2),
-            scrollTrigger:{
-                trigger: '.imagesContainer',
-               pin:true,
-                scrub:2,
-                
-            },
-        });
-
-    })
-
-    
-    
- 
+    imagesPostersAnimation()
     
     return (
         <div className="min-h-screen imagesContainer h-fit w-full font-extrabold ">
