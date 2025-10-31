@@ -103,8 +103,8 @@ li:hover .squizingLetter {
   animation: squeeze 0.2s ease-in-out forwards;
 }
 
-.squizingLetter:hover {
-  animation: squeeze 0.4s ease-in-out forwards;
+.squizingLetter:hover h2 {
+  animation: squeeze 0.4s ease-in-out backwards;
 }
 
 /* VideoCards Component Styles */

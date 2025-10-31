@@ -33,7 +33,7 @@ export default function VideosCards() {
         {data.map((item, index) => (
           <div
             key={item.src}
-            className="w-full h-min videos rounded-sm bg-[#eae7d4] text-red-500 p-1 py-2 lg:p-4 text-center cursor-pointer hover:bg-red-500 hover:text-[#eae7d4] duration-500 flex flex-col justify-center items-center"
+            className="w-full h-min videos rounded-sm bg-[#eae7d4] squizingLetter text-red-500 p-1 py-2 lg:p-4 text-center cursor-pointer hover:bg-red-500 hover:text-[#eae7d4] duration-500 flex flex-col justify-center items-center"
             onMouseEnter={() => playVideo(index)}
             onMouseLeave={() => pausedVideo(index)}
           >
@@ -46,10 +46,10 @@ export default function VideosCards() {
               muted
               playsInline
             />
-            <h1 className="lg:text-2xl font-semibold !text-black mt-4">
+            <h2 className="lg:text-2xl font-semibold !text-black mt-4">
               {item.title}
-            </h1>
-            <h2 className="lg:text-5xl text-2xl font-extrabold">{item.para}</h2>
+            </h2>
+            <h2 className="lg:text-5xl text-2xl font-extrabold ">{item.para}</h2>
           </div>
         ))}
       </div>
