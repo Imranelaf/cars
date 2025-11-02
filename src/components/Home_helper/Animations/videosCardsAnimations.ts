@@ -12,9 +12,9 @@ export default function useVideoCardsAnimation() {
       scrollTrigger: {
         trigger: ".videoContainer",
         pin: true,
-        scrub: 1,
+        scrub: true,
         start: "top top",
-        end: `+=${window.innerHeight * (cards.length - 1)}`
+        end: `+=${window.innerHeight * (cards.length)}`
       }
     })
 
@@ -33,7 +33,7 @@ export default function useVideoCardsAnimation() {
       }
 
       if (i !== cards.length - 1) {
-        tl.to(cards, { yPercent: -95 * (i + 1), duration: 1, ease: "none" })
+        tl.to(cards, { yPercent: -95 * (i + 1), duration: .5, ease: "none" })
       }
     })
   }, [])
