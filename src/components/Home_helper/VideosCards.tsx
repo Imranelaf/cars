@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Infos from "./Informations";
 import useVideoCardsAnimation from "./Animations/videosCardsAnimations";
+import VideoPlay from "../services/VideoPlay";
+
 
 const data = [
   { src: "1.mp4", title: "Starting", para: "Let's go" },
@@ -11,6 +13,8 @@ const data = [
 
 export default function VideosCards() {
   const videoRef = useRef<(HTMLVideoElement | null)[]>([]);
+  const [video, setVideo] = useState<string>() 
+
 
   const playVideo = (index: number) => {
     const video = videoRef.current[index];
@@ -25,6 +29,11 @@ export default function VideosCards() {
     }
   };
 
+  const openVideo = (index: number)=>{
+   setVideo(data[index].src) 
+    
+  }
+
   useVideoCardsAnimation();
 
   return (
@@ -36,10 +45,11 @@ export default function VideosCards() {
             className="w-full h-min videos rounded-sm bg-[#eae7d4] squizingLetter text-red-500 p-1 py-2 lg:p-4 text-center cursor-pointer hover:bg-red-500 hover:text-[#eae7d4] duration-500 flex flex-col justify-center items-center"
             onMouseEnter={() => playVideo(index)}
             onMouseLeave={() => pausedVideo(index)}
+            onClick={()=> openVideo(index)}
           >
             <video
               src={`./videos/${item.src}`}
-              className="h-auto w-full rounded-sm max-h-[60vh]"
+              className="h-auto w-full  rounded-sm cover"
               ref={(el) => {
                 videoRef.current[index] = el;
               }}
@@ -57,6 +67,7 @@ export default function VideosCards() {
       <div className="lg:w-1/2 lg:p-5 p-1 mt-5">
         <Infos />
       </div>
+      {video && <VideoPlay  link={video} setVideo={setVideo}/>}
     </section>
   );
 }
