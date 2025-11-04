@@ -29,7 +29,7 @@ export default function VideoPlay({ link, setVideo }: VideoLink) {
         <img src="images/icon-close.svg" alt="Close icon" />
       </button>
 
-      <video src={`./videos/${link}`} className="w-1/2 h-1/2 rounded-lg" controls autoPlay />
+      <video src={`./videos/${link}`} className="w-8/12 h-8/12 object-cover rounded-lg" controls autoPlay />
     </div>
   );
 }
