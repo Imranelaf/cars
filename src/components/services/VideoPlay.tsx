@@ -21,7 +21,7 @@ export default function VideoPlay({ link, setVideo }: VideoLink) {
   }
 
   return (
-    <div className="absolute inset-0 h-screen flex justify-center items-center bg-gray-900 bg-opacity-70 backdrop-blur-sm">
+    <div className="fixed inset-0 z-10 h-screen flex justify-center items-center bg-gray-900 bg-opacity-70 backdrop-blur-sm">
       <button
         onClick={close}
         className="p-3 rounded-full bg-red-500 absolute top-10 lg:right-20 z-10 cursor-pointer hover:rotate-180 duration-300"

@@ -11,9 +11,13 @@ const data = [
   { src: "4.mp4", title: "Finish line", para: "Is he win?" },
 ];
 
-export default function VideosCards() {
+type VideosCardsProps = {
+  setVideo: React.Dispatch<React.SetStateAction<string | undefined>>;
+};
+
+export default function VideosCards({ setVideo }: VideosCardsProps) {
   const videoRef = useRef<(HTMLVideoElement | null)[]>([]);
-  const [video, setVideo] = useState<string>() 
+
 
 
   const playVideo = (index: number) => {
@@ -67,7 +71,7 @@ export default function VideosCards() {
       <div className="lg:w-1/2 lg:p-5 p-1 mt-5">
         <Infos />
       </div>
-      {video && <VideoPlay  link={video} setVideo={setVideo}/>}
+      
     </section>
   );
 }
