@@ -1,10 +1,10 @@
-
-import Slogan from "../components/Home_helper/Slogan";
-import VideosCards from "../components/Home_helper/VideosCards";
-import Images from "../components/Home_helper/ImagesPosters";
-import HitUsUp from "../components/Home_helper/HitUsUp";
 import { useState } from "react";
-import VideoPlay from "../components/services/VideoPlay";
+import HitUsUp from "../components/Hero/components/HitUsUp";
+import Images from "../components/Hero/components/ImagesPosters";
+import Slogan from "../components/Hero/components/Slogan";
+import VideosCards from "../components/Hero/components/VideosCards";
+import VideoPlay from "../components/Hero/services/VideoPlay";
+
 
 export default function Home() {
     const [video, setVideo] = useState<string>() 
