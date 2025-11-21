@@ -1,7 +1,12 @@
+import NavBar from "../components/NavBar";
+
 export default function VideosPage(){
     return(
-        <section>
-            Videos Page
-        </section>
+        <section className="bgColor w-full min-h-screen h-fit">
+              <div className="p-5">
+                <NavBar />
+              </div>
+              
+            </section>
     )
 }

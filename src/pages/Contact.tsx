@@ -1,7 +1,15 @@
+import NavBar from "../components/NavBar";
+
 export default function Contact(){
 
     return(
-        <section>
+   
+             <section className="bgColor w-full min-h-screen h-fit">
+                          <div className="p-5">
+                            <NavBar />
+                          </div>
+
+                        
             <div>
                     <h2 className="text-3xl font-bold mb-6">REACHED OUT</h2>
                     <div className="space-y-4">

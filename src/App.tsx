@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router";
 import PicturesPages from "./pages/PicturesPage";
 import VideosPage from "./pages/VideosPage";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 
 
@@ -15,6 +16,7 @@ export default function App(){
   <Route path="pictures" element={<PicturesPages />} />
   <Route path="videos" element={<VideosPage />} />
   <Route path="contact" element={<Contact />} />
+  <Route path="about" element={<About />} />
 </Routes>
     
   )
