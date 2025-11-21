@@ -1,3 +1,5 @@
+/* this file contien the scroll animation with css
+ */
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -16,10 +18,24 @@
     }
 }
 
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .animate-scroll {
     animation: scroll 5s linear infinite;
 }
 
 .animate-scroll-vertical {
     animation: scroll-vertical 20s linear infinite;
+}
+
+.animate-scroll-horizontal {
+    animation: scroll-horizontal 20s linear infinite;
+  
 }

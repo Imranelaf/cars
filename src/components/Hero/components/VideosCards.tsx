@@ -1,7 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Infos from "./Informations";
 import useVideoCardsAnimation from "./Animations/videosCardsAnimations";
-import VideoPlay from "../services/VideoPlay";
 
 
 const data = [

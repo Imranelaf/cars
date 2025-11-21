@@ -26,7 +26,7 @@ export default function NavBar() {
 
   return (
     <nav className="flex border-2 border-[#eae7d4] rounded-sm p-4 justify-between items-center text-[#eae7d4] relative">
-      <p className="text-lg sm:text-xl font-bold">Cars</p>
+      <p className="text-lg sm:text-xl font-bold"> <Link to='/'>Cars</Link></p>
 
       {/* Desktop Menu */}
       <ul className="hidden lg:flex gap-6 xl:gap-12 mr-8 font-black text-lg xl:text-xl">
