@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Infos from "./Informations";
-import useVideoCardsAnimation from "./Animations/videosCardsAnimations";
+import useVideoCardsAnimation from "../animations/videosCardsAnimations";
+
 
 
 const data = [
@@ -36,8 +37,10 @@ export default function VideosCards({ setVideo }: VideosCardsProps) {
    setVideo(data[index].src) 
     
   }
+      useVideoCardsAnimation();
+     
 
-  useVideoCardsAnimation();
+ 
 
   return (
     <section className="w-screen lg:h-screen h-[200vh] lg:flex videoContainer">

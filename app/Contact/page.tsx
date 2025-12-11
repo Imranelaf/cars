@@ -1,16 +1,10 @@
-import NavBar from "../components/NavBar";
-import PageTransition from "../components/PageTransition";
 
 export default function Contact(){
 
     return(
-            <PageTransition>
+       
    
              <section className="bgColor w-full min-h-screen h-fit">
-                          <div className="p-5">
-                            <NavBar />
-                          </div>
-
                         
             <div>
                     <h2 className="text-3xl font-bold mb-6">REACHED OUT</h2>
@@ -40,6 +34,6 @@ export default function Contact(){
                 </div>
            </section>
 
-           </PageTransition>
+           
     )
 }

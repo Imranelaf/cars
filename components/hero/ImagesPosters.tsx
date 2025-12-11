@@ -1,4 +1,5 @@
-import imagesPostersAnimation from "./Animations/ImagesPostersAnimation"
+import { useEffect } from "react"
+import imagesPostersAnimation from "../animations/ImagesPostersAnimation"
 
 
 const data = [
@@ -29,8 +30,9 @@ const data = [
     ]
 
 export default function Images() {
+        imagesPostersAnimation()
+  
     
-    imagesPostersAnimation()
     
     return (
         <div className="min-h-screen imagesContainer h-fit w-full font-extrabold ">

@@ -1,5 +1,3 @@
-
-
 export default function Infos(){
     return(
         <div className="w-full h-full informations flex flex-col justify-center items-center">

@@ -1,9 +1,11 @@
-import HitUsAnimation from "./Animations/HitUsAnimation";
+import { useEffect } from "react";
+import HitUsAnimation from "../animations/HitUsAnimation";
+
 
 export default function HitUsUp() {
-   
-    HitUsAnimation();
-
+        HitUsAnimation();
+ 
+    
     return (
         <section className="min-h-screen hitusup w-full bg-[#eae7d4] p-8 flex flex-col">
             {/* Header Section */}

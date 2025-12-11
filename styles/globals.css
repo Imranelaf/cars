@@ -1,0 +1,143 @@
+/* -------------------------------------------------
+   🔹 GLOBAL IMPORTS
+--------------------------------------------------- */
+@import "tailwindcss";
+
+/* -------------------------------------------------
+   🔹 GLOBAL STYLES
+--------------------------------------------------- */
+body {
+  background-color: #eae7d4;
+  font-family: 'Grand-Regular', sans-serif;
+}
+
+/* -------------------------------------------------
+   🔹 CUSTOM FONTS
+--------------------------------------------------- */
+@font-face {
+  font-family: 'Grand-Regular';
+  src: url('/fonts/NTF-Grand-Regular.otf') format('opentype'),
+       url('/fonts/NTF-Grand-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chunko';
+  src: url('/fonts/Chunko Bold Demo.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* -------------------------------------------------
+   🔹 TYPOGRAPHY
+--------------------------------------------------- */
+h1 {
+  margin-top: 1rem;
+}
+
+p {
+  color: #eae7d4;
+}
+
+.chunko-bold {
+  font-family: "Chunko", sans-serif;
+  font-weight: 900;
+}
+
+.chunko {
+  font-family: "Chunko", sans-serif;
+  font-weight: 700;
+}
+
+.hit {
+  font-family: "Chunko", sans-serif;
+  font-weight: 900;
+  letter-spacing: 1rem;
+}
+
+.slogan h1 {
+  font-family: "Chunko", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+}
+
+.informations h6 {
+  color: #eae7d4;
+  font-family: 'Grand-Regular', sans-serif;
+  letter-spacing: 0.05rem;
+}
+
+/* -------------------------------------------------
+   🔹 NAVBAR
+--------------------------------------------------- */
+.navbar {
+  padding: 1rem;
+}
+
+.bgColor {
+  background-color: #2a3037;
+}
+
+/* -------------------------------------------------
+   🔹 ANIMATIONS
+--------------------------------------------------- */
+@keyframes squeeze {
+  0%, 100% {
+    transform: scale(1);
+    color: #eae7d4;
+  }
+  50% {
+    transform: scale(0.5);
+    color: red;
+  }
+  75% {
+    transform: scale(0.8);
+    color: red;
+  }
+}
+
+.squizingLetter {
+  display: inline-block;
+}
+
+li:hover .squizingLetter {
+  animation: squeeze 0.2s ease-in-out forwards;
+}
+
+.squizingLetter:hover h2 {
+  animation: squeeze 0.4s ease-in-out backwards;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.imageRotation {
+  animation: rotation 20s infinite linear;
+}
+
+/* -------------------------------------------------
+   🔹 SCROLLBAR HIDE
+--------------------------------------------------- */
+.hideScrollBare {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hideScrollBare::-webkit-scrollbar {
+  display: none;
+}
+
+/* -------------------------------------------------
+   🔹 COMPONENT-SPECIFIC
+--------------------------------------------------- */
+.hitUs {
+  background-color: #eae7d4;
+}
+
+.imagesContainer {
+  color: #eae7d4;
+}
