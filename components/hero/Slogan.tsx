@@ -1,9 +1,10 @@
+import Image from 'next/image'
 import '../../styles/animations.css'
 
 export default function Slogan() {
 
     return (
-        <section className="h-screen w-screen slogan text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
+        <section className="lg:h-screen h-[70vh] w-screen  slogan  text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
             <div className="h-full flex flex-col w-full lg:flex-row lg:justify-between lg:px-8">
                 {/* Left Scrolling bar for large screens */}
                 <div className='hidden lg:block border-2 border-[#eae7d4] overflow-hidden w-14 my-4 h-10/12 rounded-sm'>
@@ -15,7 +16,7 @@ export default function Slogan() {
                 </div>
 
                 {/* Main content */}
-                <div className="flex-1 flex items-center justify-center">
+                <div className="flex-1 flex items-center text-center justify-center">
                     {/* Large screens */}
                     <div className="hidden lg:flex flex-col items-center">
                         <h1>Life's Journey</h1>
@@ -37,15 +38,16 @@ export default function Slogan() {
                         <h1>Life's Journey</h1>
                         <h1 className='text-5xl !text-red-500 italic'>Enjoy</h1>
                         <h1>The ride</h1>
-                        <img
-                            src="./images/mcqueen.gif"
+                        <Image
+                            src="/images/mcqueen.gif"
                             alt="Winking"
-                            className="w-50"
+                            width={150}
+                            height={150}
                             draggable='false'
                         />
                         <div className='w-full text-base overflow-hidden my-4 p-1 border-2 rounded-sm'>
                             <div className="flex gap-4 animate-scroll">
-                                {Array.from({ length: 8}).map((_, index) => (
+                                {Array.from({ length: 16}).map((_, index) => (
                                     <p key={index} className="text-[#eae7d4] tracking-wider font-semibold whitespace-nowrap">PIXAR</p>
                                 ))}
                             </div>

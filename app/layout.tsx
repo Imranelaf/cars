@@ -13,10 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Cars",
-  description: "Cool movie from Pixar",
+export const metadata = {
+  title: "Cars — Pixar Fan Site",
+  description: "Fan project showcasing Cars movie characters, videos, posters, animations.",
+  keywords: ["Cars", "Pixar", "McQueen", "Posters", "Fan website"],
 };
+
 
 export default function RootLayout({
   children,

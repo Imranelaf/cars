@@ -1,9 +1,13 @@
+import Image from "next/image";
+
 export default function Infos(){
     return(
         <div className="w-full h-full informations flex flex-col justify-center items-center">
-            <img src="./images/curved-text.webp" alt="PIXAR CURVED TEXT"
-            className="w-60 lg:w-auto imageRotation"
-             draggable={false}
+            <Image src="/images/curved-text.webp" alt="PIXAR CURVED TEXT"
+            width={320}
+            height={320}
+            className="imageRotation"
+            draggable={false}
             />
             <h6 className="lg:m-4 m-2 text-center lg:text-3xl">
                 A rookie race car, <span className="font-extrabold lg:text-4xl">Lightning McQueen</span>, gets stranded in the forgotten town of <span className="lg:text-6xl italic">Radiator Springs</span>  on Route

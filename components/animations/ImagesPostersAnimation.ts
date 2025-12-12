@@ -2,10 +2,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 export default function imagesPostersAnimation() {
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const sections = gsap.utils.toArray(".panel");
 
     gsap.set(sections, { rotate: 15, scale: 0.5, opacity: 0 });
