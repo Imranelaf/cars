@@ -14,13 +14,13 @@ export default function Hero() {
     const videoPlayerRef = useRef(null)  
 
   return (
-    <div className="relative h-fit bgColor w-fit">
+    <div className="relative h-fit bgColor w-screen">
       <div ref={videoPlayerRef}>
         {video && <VideoPlay link={video} setVideo={setVideo} />}
       </div>
       <Slogan />
       <VideosCards setVideo={setVideo} />
-      <Images />
+      <Images /> 
       <HitUsUp />
 
       

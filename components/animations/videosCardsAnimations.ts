@@ -7,7 +7,27 @@ export default function useVideoCardsAnimation() {
     gsap.registerPlugin(ScrollTrigger)
 
     const cards = gsap.utils.toArray(".videos")
+    const mm = gsap.matchMedia();
 
+    mm.add("(max-width: 799px)", () => {
+    cards.forEach((panel) => {
+      gsap.from(panel, {
+        opacity: 0,
+        y: -100,
+        duration: 0.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: panel,
+          start: "top 90%",
+          end: "top 80%",
+          toggleActions: "play none none reverse",
+        }
+      });
+    });
+  });
+    
+
+    mm.add("(min-width: 800px)", () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".videoContainer",
@@ -36,5 +56,6 @@ export default function useVideoCardsAnimation() {
         tl.to(cards, { yPercent: -95 * (i + 1), duration: .5, ease: "none" })
       }
     })
+  })
   }, [])
 }

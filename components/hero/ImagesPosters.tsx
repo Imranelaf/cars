@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import imagesPostersAnimation from "../animations/ImagesPostersAnimation"
 import { useGSAP } from "@gsap/react"
 
@@ -32,7 +31,11 @@ const data = [
 
 export default function Images() {
 
+    useGSAP(()=>{
         imagesPostersAnimation()
+
+    })
+        
 
 
         

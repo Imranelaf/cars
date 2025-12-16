@@ -43,8 +43,8 @@ export default function VideosCards({ setVideo }: VideosCardsProps) {
  
 
   return (
-    <section className="w-screen lg:h-screen h-[200vh] lg:flex videoContainer">
-      <div className="relative lg:w-1/2 p-1 w-full h-screen videoTrigger flex flex-col gap-5 overflow-hidden">
+    <section className="w-screen lg:h-screen h-fit block lg:flex videoContainer">
+      <div className="relative lg:w-1/2 p-1 w-full lg:h-screen h-fit  videoTrigger flex flex-col gap-5 overflow-hidden">
         {data.map((item, index) => (
           <div
             key={item.src}
