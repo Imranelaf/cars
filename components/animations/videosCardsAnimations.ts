@@ -18,7 +18,7 @@ export default function useVideoCardsAnimation() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: panel,
-          start: "top 140%",
+          start: "top 100%",
           end: "top 80%",
           toggleActions: "play none none reverse",
         }

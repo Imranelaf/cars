@@ -37,7 +37,7 @@ export default function imagesPostersAnimation() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: panel,
-          start: "top 100%",
+          start: "top 80%",
           end: "top 80%",
           toggleActions: "play none none reverse",
         }

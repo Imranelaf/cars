@@ -14,7 +14,7 @@ export default function Hero() {
     const videoPlayerRef = useRef(null)  
 
   return (
-    <div className="relative h-fit bgColor w-screen">
+    <div className="relative h-fit bgColor w-screen overflow-x-hidden">
       <div ref={videoPlayerRef}>
         {video && <VideoPlay link={video} setVideo={setVideo} />}
       </div>
