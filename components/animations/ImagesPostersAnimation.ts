@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function imagesPostersAnimation() {
-  const sections = gsap.utils.toArray(".panel");
+  const sections = gsap.utils.toArray<HTMLElement>(".panel");
   const mm = gsap.matchMedia();
 
   mm.add("(min-width: 800px)", () => {
@@ -16,14 +16,14 @@ export default function imagesPostersAnimation() {
         pin: true,
         scrub: 2,
         start: "top top",
-        end: () => `+=${window.innerWidth * (sections.length + 2)}`
+        end: () => `+=${window.innerWidth * (sections.length + 1)}`
       }
     });
 
     sections.forEach((section, i) => {
       tl.to(section, { rotate: 0, scale: 1, opacity: 1, duration: 0.5 }, "<");
       if (i !== sections.length - 1) {
-        tl.to(sections, { xPercent: -85 * (i + 1), duration: 1, ease: "none" });
+        tl.to(sections, { xPercent: -95 * (i + 1), duration: 1, ease: "none" });
       }
     });
   });
@@ -37,7 +37,7 @@ export default function imagesPostersAnimation() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: panel,
-          start: "top 90%",
+          start: "top 100%",
           end: "top 80%",
           toggleActions: "play none none reverse",
         }

@@ -6,7 +6,7 @@ export default function useVideoCardsAnimation() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const cards = gsap.utils.toArray(".videos")
+    const cards = gsap.utils.toArray<HTMLElement>(".videos")
     const mm = gsap.matchMedia();
 
     mm.add("(max-width: 799px)", () => {
@@ -18,7 +18,7 @@ export default function useVideoCardsAnimation() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: panel,
-          start: "top 90%",
+          start: "top 140%",
           end: "top 80%",
           toggleActions: "play none none reverse",
         }
