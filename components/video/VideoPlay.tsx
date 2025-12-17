@@ -7,21 +7,37 @@ type VideoLink = {
 
 export default function VideoPlay({ link, setVideo }: VideoLink) {
 
-    useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, []);
+  useEffect(()=>{
+
+    // Lock body scroll while the video is open by fixing the body position.
+    // Save the current scroll position and restore it when the component unmounts.
+
+    const yposition = window.scrollY;
+    const positions = document.body.style.position;
+    const originalTop = document.body.style.top;
+
+    // Lock the body and keep the visual position unchanged
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${yposition}px`;
+
+    return ()=>{
+      // Restore body styles and scroll position when closing the video
+      document.body.style.position = positions
+      document.body.style.top = originalTop;
+      window.scrollTo(0, yposition);
+    }
+  },[])
 
 
-  const close = ()=>{
+  // Close the video modal
+  const close = ()=>{  
     setVideo(undefined)
   }
 
+
   return (
-    <div className="fixed inset-0 z-10 h-screen flex justify-center items-center bg-gray-900 bg-opacity-70 backdrop-blur-sm">
+    // Fullscreen overlay with backdrop blur
+    <div className="fixed inset-0 z-20 h-screen flex justify-center items-center bg-gray-900 bg-opacity-70 backdrop-blur-sm">
       <button
         onClick={close}
         className="p-3 rounded-full bg-red-500 absolute top-10 lg:right-20 z-10 cursor-pointer hover:rotate-180 duration-300"
