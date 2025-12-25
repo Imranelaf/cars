@@ -4,34 +4,31 @@ export default function Contact(){
     return(
        
    
-             <section className="bgColor w-full min-h-screen h-fit">
+             <section className="bgColor w-full h-[87vh] flex flex-col slogan justify-center items-center">
                         
+            <div className="text-center">
+                <h1 className="text-[#eae7d4] lg:text-6xl text-3xl text-bold">WHAT'S ON YOURS</h1>
+                <h1 className="text-red-500 lg:text-8xl text-5xl text-extrabold">MIND?</h1>
+            </div>
             <div>
-                    <h2 className="text-3xl font-bold mb-6">REACHED OUT</h2>
-                    <div className="space-y-4">
-                        <input 
-                            type="text" 
-                            placeholder="Name" 
-                            className="w-full bg-transparent border-b-2 border p-2 focus:outline-none focus:border-red-500 placeholder-gray-400"
-                        />
-                        <input 
-                            type="email" 
-                            placeholder="Email" 
-                            className="w-full bg-transparent border-b-2 p-2 focus:outline-none focus:border-red-500 placeholder-gray-400"
-                        />
-                        <textarea 
-                            placeholder="Message" 
-                            rows={6}
-                            className="w-full bg-transparent border-2 p-2 focus:outline-none focus:border-red-500  placeholder-gray-400"
-                        ></textarea>
-                        <button 
-                            type="button"
-                            className="bg-red-500 px-8 py-3 font-bold hover:bg-red-600 transition-colors"
-                        >
-                            SEND
-                        </button>
-                    </div>
+                <div className="text-[#eae7d4] flex lg:flex-row flex-col text-sm placeholder:text-sm"> 
+                <input
+                     type="text"
+                     placeholder="FULL NAME"
+                     className="bg-[#575656] lg:w-[21vw] w-[80vw] h-[3rem] font-semibold p-2 rounded-lg placeholder-[#eae7d4] placeholder:tracking-wide outline-none m-2" />
+                <input type="email" placeholder="EMAIL" className="bg-[#575656] lg:w-[21vw] w-[80vw] h-[3rem] font-semibold p-2 rounded-lg placeholder-[#eae7d4] placeholder:tracking-wide outline-none m-2"  />
+                
                 </div>
+                <div className="flex flex-col text-[#eae7d4] items-center">
+                <textarea name="text" id="" placeholder="MESSAGE" className="bg-[#575656] lg:w-[43vw] w-[80vw] h-[10rem] font-semibold p-2 rounded-lg placeholder-[#eae7d4] placeholder:text-sm placeholder:tracking-wide outline-none m-2"  />
+                    <button className="group bg-red-500 rounded-lg px-6 py-3 overflow-hidden lg:w-[43vw] w-[80vw]">
+                        <span className="inline-block text-2xl font-black tracking-wider transition-transform duration-300 group-hover:scale-150">
+                            SENT
+                        </span>
+                    </button>
+
+                </div>
+            </div>
            </section>
 
            
