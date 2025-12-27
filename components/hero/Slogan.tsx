@@ -4,7 +4,7 @@ import '../../styles/animations.css'
 export default function Slogan() {
 
     return (
-        <section className="lg:h-screen h-[70vh] w-screen  slogan  text-4xl md:text-6xl lg:text-8xl text-[#eae7d4]">
+        <section className="lg:h-screen h-[70vh] w-screen  slogan  lg:text-8xl text-5xl lg:p-4 p-2 uppercase text-[#eae7d4]">
             <div className="h-full flex flex-col w-full lg:flex-row lg:justify-between lg:px-8">
                 {/* Left Scrolling bar for large screens */}
                 <div className='hidden lg:block border-2 border-[#eae7d4] overflow-hidden w-14 my-4 h-10/12 rounded-sm'>
