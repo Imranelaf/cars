@@ -2,7 +2,29 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { SplitText } from "gsap/SplitText"
-import { useEffect } from "react"
+import Image from "next/image"
+
+const data=[
+    {
+        fname:'John ',
+        lname: 'Lasseter',
+        job: 'Director',
+        pic: '/images/Crew/John_Lasseter.webp'
+    },
+     {
+        fname:'Joe ',
+        lname:'Ranft',
+        job: 'Co-director/Writer',
+        pic: '/images/Crew/Joe_Ranft.webp'
+    },
+     {
+        fname:'Owen ',
+        lname:'Wilson',
+        job: "McQueen'S voice",
+        pic: '/images/Crew/Owen_Wilson.webp'
+    },
+]
+    
 
 export default function About() {
 
@@ -63,8 +85,33 @@ export default function About() {
                     true victory isn’t just about crossing the finish line, but about friendship, humility, 
                     and finding meaning off the beaten path.
                 </p>
+            </div>
+ 
+            <div className="min-h-screen h-fit w-full p-2 lg:flex gap-3">
+
+                {
+                    data.map((item)=>(
+                        <div key={item.lname} className="h-fit group my-2 lg:w-1/3 w-full bg-[#eae7d4] hover:bg-[#ded6a6] duration-300 uppercase p-4 rounded-sm flex flex-col items-center text-center cursor-pointer" >
+                            <Image
+                                src={item.pic}
+                                alt="Jeo Ranft"
+                                height={550}
+                                width={450}
+                                className="relative h-1/2 w-full lg:h-3/5 lg:w-4/5 rounded-sm group-hover:scale-105 duration-500"
+                            />
+                            
+                            <h1 className="text-xl font-bold underline ">{item.job}</h1>
+                            <div className="flex flex-row ">
+                            <h1 className="lg:text-7xl text-5xl flex flex-col chunko-bold text-red-500">{item.lname} <span className=" text-black ">{item.fname} </span></h1>
+                    </div>
+                    
+
                 </div>
-      
+
+                    ))
+                }
+
+            </div>
 
         </section>
     )
