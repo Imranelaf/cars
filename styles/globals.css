@@ -107,11 +107,11 @@ p {
 }
 
 li:hover .squizingLetter {
-  animation: squeeze 0.2s ease-in-out forwards;
+  animation: squeeze 0.1s ease-in-out forwards;
 }
 
 .squizingLetter:hover h2 {
-  animation: squeeze 0.4s ease-in-out backwards;
+  animation: squeeze 0.1s ease-in-out backwards;
 }
 
 @keyframes rotation {

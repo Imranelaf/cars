@@ -1,3 +1,9 @@
+'use client'
+
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap/all"
+import Image from "next/image"
+
 const real_cars = [
         "https://cdn.pixabay.com/photo/2019/11/19/16/57/corvette-4637919_1280.jpg",
         "https://cdn.pixabay.com/photo/2021/11/18/02/45/car-6805260_1280.jpg",
@@ -20,19 +26,46 @@ const real_cars = [
   
 
 export default function Pictures() {
-  return (
-    <section className="bgColor w-full min-h-screen p-4">
 
-      <div className="text-[#eae7d4] chunko lg:text-9xl text-6xl lg:p-4 p-2 text-center uppercase">
-        <span className="text-red-500">Cars</span><br /> in real life
+    useGSAP(()=>{
+      const tl = gsap.timeline()
+      gsap.set('.pictureContainer', {opacity:0})
+        tl.to('.wheel',{
+          rotate:360,
+          repeat:-1,
+          duration:3,
+          ease:'none',
+
+        }).from('.CarsInReal',{
+          x:'-=100vw',
+          duration:3,
+          ease: "elastic.out(1,0.5)",
+        }, 0).to('.pictureContainer',{opacity:1, duration:.5})
+
+
+    })
+
+  return (
+    <section className="bgColor w-full min-h-screen p-4 ">
+
+      <div className="CarsInReal text-[#eae7d4] chunko lg:text-9xl text-6xl lg:p-4 p-2 text-center uppercase flex flex-col lg:flex-row items-center justify-center">
+        <h1><span className="text-red-500">Cars</span><br /> in real life</h1> 
+       
+        <Image 
+          src="/images/wheel.webp"
+          alt="wheel"
+          height={300}
+          width={300}
+          className="wheel"
+          draggable={false}
+        />
+
       </div>
 
       <div className="
-        columns-1
-        md:columns-2
-        lg:columns-3
+        columns-[500px]
         gap-4
-        
+        pictureContainer
       ">
         {real_cars.map((pic) => (
           <img
