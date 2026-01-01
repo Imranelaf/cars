@@ -34,13 +34,15 @@ export default function Pictures() {
         gap-4
         
       ">
-        {real_cars.map((pic, index) => (
+        {real_cars.map((pic) => (
           <img
-            key={index}
+            key={pic}
             src={pic}
             alt="car"
-            className="mb-4 w-full break-inside-avoid border border-[#eae7d4] hover:scale-105 hover:border-red-500 duration-500"
-          />
+            loading="lazy"
+            className="mb-4 w-full break-inside-avoid border border-[#eae7d4] hover:scale-105 hover:border-red-500 duration-500 will-change-transform"
+
+            />
         ))}
       </div>
     </section>
