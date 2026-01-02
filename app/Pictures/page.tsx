@@ -1,7 +1,7 @@
 'use client'
 
+import PicturesAnimation from "@/components/animations/PicturesAnimation"
 import { useGSAP } from "@gsap/react"
-import gsap from "gsap/all"
 import Image from "next/image"
 
 const real_cars = [
@@ -28,25 +28,13 @@ const real_cars = [
 export default function Pictures() {
 
     useGSAP(()=>{
-      const tl = gsap.timeline()
-      gsap.set('.pictureContainer', {opacity:0})
-        tl.to('.wheel',{
-          rotate:360,
-          repeat:-1,
-          duration:3,
-          ease:'none',
 
-        }).from('.CarsInReal',{
-          x:'-=100vw',
-          duration:3,
-          ease: "elastic.out(1,0.5)",
-        }, 0).to('.pictureContainer',{opacity:1, duration:.5})
-
-
+        PicturesAnimation()
     })
+    
 
   return (
-    <section className="bgColor w-full min-h-screen p-4 ">
+    <section className="bgColor w-full min-h-screen p-4 overflow-x-hidden ">
 
       <div className="CarsInReal text-[#eae7d4] chunko lg:text-9xl text-6xl lg:p-4 p-2 text-center uppercase flex flex-col lg:flex-row items-center justify-center">
         <h1><span className="text-red-500">Cars</span><br /> in real life</h1> 
@@ -65,7 +53,7 @@ export default function Pictures() {
       <div className="
         columns-[500px]
         gap-4
-        pictureContainer
+        
       ">
         {real_cars.map((pic) => (
           <img
@@ -73,7 +61,7 @@ export default function Pictures() {
             src={pic}
             alt="car"
             loading="lazy"
-            className="mb-4 w-full break-inside-avoid border border-[#eae7d4] hover:scale-105 hover:border-red-500 duration-500 will-change-transform"
+            className="pic mb-4 w-full break-inside-avoid border border-[#eae7d4] hover:scale-105 hover:border-red-500 duration-500 will-change-transform"
 
             />
         ))}
