@@ -3,7 +3,7 @@ import gsap from "gsap/all"
 export default function PicturesAnimation(){
 
    
-        gsap.set('.pic', {opacity:0})
+        
               const tl = gsap.timeline()
               
                 tl.to('.wheel',{

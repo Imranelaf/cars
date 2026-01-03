@@ -62,7 +62,7 @@ export default function Pictures() {
             alt="car"
             loading="lazy"
             className="pic mb-4 w-full break-inside-avoid border border-[#eae7d4] hover:scale-105 hover:border-red-500 duration-500 will-change-transform"
-
+            style={{opacity:0}}
             />
         ))}
       </div>
