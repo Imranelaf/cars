@@ -1,15 +1,18 @@
 'use client'
 
 import gsap from "gsap/all"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ReachedOut from "../ui/ReachedOut"
 
 export default function Footer() {
     const [reached, setReached] = useState(false)
+    const star1 = useRef<HTMLImageElement>(null)
+    const star2 = useRef<HTMLImageElement>(null)
 
+
+    // Animated the botton when the user click on it
     const clicked = () => {
-        const tl = gsap.timeline()
-        tl.to('.topBotton', {
+        gsap.to('.topBotton', {
             y: 10,
             duration: .2,
             repeat: 1,
@@ -19,14 +22,95 @@ export default function Footer() {
 
     }
 
+    // Close the Reached out component when the user click on close botton
     const Closed = ()=>{
         setReached(false)
     }
 
-    return (
-        <div className="w-full min-h-screen ">
+    const button = useRef<HTMLDivElement>(null)
 
-            <div className="flex lg:m-5 m-1 cursor-pointer" onClick={() => clicked()}>
+    //Making the botton image react to mouse mouvement
+    useEffect(()=>{
+        const handleMove = (e: MouseEvent)=>{
+            const {clientX, clientY} = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight /2;
+
+            const moveX = (clientX - centerX) /50;
+            const moveY = (clientY - centerY) /50;
+
+          
+                gsap.to(button.current, {
+                    x: moveX * 1.5,
+                    y: moveY * 1.5,
+                    rotation: moveX * .1,
+                    scale: 1.03,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+
+               
+
+                            
+        }
+            window.addEventListener('mousemove', handleMove)
+
+        return ()=> window.removeEventListener('mousemove', handleMove)
+    })
+
+     useEffect(() => {
+    // Create a shining/twinkling effect
+    const tl = gsap.timeline({ repeat: -1 })
+    const tl2 = gsap.timeline({ repeat: -1 })
+    tl.to(star1.current, {
+      x:-50,
+      opacity: 1,
+      scale: 1.3,
+      rotation: 100,
+      duration: 1.5,
+      ease: "sine.inOut",
+    
+    }).to(star1.current,{
+        x:-100,
+      opacity: 0,
+      scale: .1,
+      rotation: 180,
+      duration: 1,
+      ease: "sine.inOut",
+  
+    })
+    tl2.to(star2.current, {
+      y:-80,
+      x:40,
+      opacity: 1,
+      scale: 1.3,
+      rotation: 100,
+      duration: 1.5,
+      delay:.2,
+      ease: "sine.inOut",
+    
+    }).to(star2.current,{
+       y:-150,
+      opacity: 0,
+      scale: .1,
+      rotation: 180,
+      duration: 1,
+      ease: "sine.inOut",
+  
+    })
+})
+
+
+
+    return (
+        <div className="w-full min-h-screen bg-green-500 flex flex-col items-end lg:p-12">
+                   
+            <div className="flex lg:m-5 m-1 cursor-pointer" onClick={() => clicked()} ref={button}>
+                 <div className=" absolute justify-around">
+                   
+                    <img src="/images/botton/button-star-1.svg" alt="botton start" ref={star1} className=" scale-10 opacity-0" />
+                     <img src="/images/botton/button-star-2.svg" alt="botton start" ref={star2} className="scale-10 opacity-0"/>
+                    </div>
                 <img src="/images/botton/button-top.svg" alt="button-top" className="absolute  topBotton z-0 " />
                 <img src="/images/botton/button-bottom.svg" alt="button-bottom" className="z-10" />
             </div>
