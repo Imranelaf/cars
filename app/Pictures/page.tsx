@@ -1,6 +1,7 @@
 'use client'
 
 import PicturesAnimation from "@/components/animations/PicturesAnimation"
+import Footer from "@/components/footer/Footer"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
 
@@ -66,6 +67,7 @@ export default function Pictures() {
             />
         ))}
       </div>
+      <Footer />
     </section>
   )
 }
