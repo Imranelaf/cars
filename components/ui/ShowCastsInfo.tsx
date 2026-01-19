@@ -1,7 +1,7 @@
 'use client'
 import { Person } from "@/app/About/page"
 import { useGSAP } from "@gsap/react"
-import gsap from "gsap/all"
+import gsap from "gsap"
 import Image from "next/image"
 
 
@@ -9,59 +9,80 @@ interface Props {
   activePerson: Person
   setActivePerson: (person: Person | null) => void
 }
-export default function ShowCastsInfo({activePerson,setActivePerson }:Props){
 
+export default function ShowCastsInfo({activePerson, setActivePerson}: Props){
 
-    useGSAP(()=>{
+    useGSAP(() => {
         if(activePerson){
-        gsap.fromTo('.displayCastInfo',{
-            x:'+=100vw'
-        },
-        {
-            x:0,
-            duration:1,
-            ease:'power4'
+            gsap.fromTo('.displayCastInfo', {
+                x: '100vw'
+            }, {
+                x: 0,
+                duration: 1,
+                ease: 'power4.out'
+            })
         }
-        )
-    }
-}, [activePerson])
+    }, [activePerson])
 
-    const handleClose = ()=>{
-        gsap.to('.displayCastInfo',{
-            x:'+=100vw',
-            onComplete: ()=>{
+    const handleClose = () => {
+        gsap.to('.displayCastInfo', {
+            x: '100vw',
+            duration: 0.5,
+            ease: 'power4.in',
+            onComplete: () => {
                 setActivePerson(null)
-                document.body.style.overflow = "auto"}
+                document.body.style.overflow = "auto"
+            }
         })
     }
 
-    
-
     return(
-        <div className="fixed top-0 w-full h-full displayCastInfo overflow-hidden overscroll-none" >
-              <div className="absolute lg:w-1/2  lg:h-full w-0 h-0 bg-black/50">
+        <div className="fixed inset-0 z-50 displayCastInfo flex">
+            {/* Overlay - click to close */}
+            <div 
+                className="lg:w-1/2 w-0 h-full bg-black/50 cursor-pointer "
+                onClick={handleClose}
+            />
 
-              </div>
+            {/* Content panel */}
+            <div className="lg:w-1/2 w-full h-full bg-[#eae7d4] overflow-y-auto">
+                <div className="p-5">
+                    {/* Close button */}
+                    <button 
+                        className="m-3 p-3 group rounded-lg transition-colors duration-300 cursor-pointer border-2" 
+                        onClick={handleClose}
+                        aria-label="Close"
+                    >
+                        <Image 
+                            src="/images/icon-close.svg" 
+                            alt="Close icon" 
+                            width={24}
+                            height={24}
+                            className=" group hover:scale-105 hover:rotate-180 duration-300" 
+                        /> 
+                    </button>
 
-              <div className="absolute right-0 lg:w-1/2 w-full h-full bg-[#eae7d4] p-5">
-              <button className="m-3 p-3 border-3 group cursor-pointer" onClick={handleClose}>
-                <img src="images/icon-close.svg" alt="Close icon" className="hover:scale-105 hover:rotate-180 duration-300" /> 
-              </button>
-             <Image
-              src={activePerson.pic}
-               alt={activePerson.lname}
-              height={250}
-               width={300}
-               className="rounded-lg"
-              
-               
-               />
+                    {/* Person image */}
+                    <Image
+                        src={activePerson.pic}
+                        alt={activePerson.lname}
+                        height={250}
+                        width={300}
+                        className="rounded-lg mb-4"
+                    />
+                    
+                    {/* Person name */}
+                    <h1 className="lg:text-7xl text-4xl chunko-bold text-red-500 mb-4">
+                        {activePerson.lname} 
+                        <span className="text-black">{activePerson.fname}</span>
+                    </h1>
                 
-                <h1 className="lg:text-7xl text-5xl chunko-bold text-red-500">{activePerson.lname} <span className=" text-black ">{activePerson.fname} </span></h1>
-             
-              <p className="!text-gray-700">{activePerson.bio}</p>
-              </div>
-              
+                    {/* Bio text */}
+                    <h6 className="text-gray-700 text-base lg:text-lg leading-relaxed">
+                        {activePerson.bio}
+                    </h6>
+                </div>
             </div>
+        </div>
     )
 }
