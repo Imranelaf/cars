@@ -1,7 +1,7 @@
 'use client'
 
 import gsap from "gsap/all"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import ReachedOut from "../ui/ReachedOut"
 import Image from "next/image"
 import { useGSAP } from "@gsap/react"
