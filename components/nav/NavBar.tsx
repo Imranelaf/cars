@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const bar = [
   { name: 'VIDEOS', path: '/Videos' },
@@ -13,10 +15,49 @@ export default function NavBar() {
 
   /* State used to toggle the mobile (hamburger) navigation menu */
   const [isOpen, setIsOpen] = useState(false);
+  
+  /* Ref for the navbar element */
+  const navRef = useRef<HTMLElement>(null);
+  
+  /* Track last scroll position */
+  const lastScrollY = useRef(0);
+
+  useGSAP(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling DOWN - hide navbar
+        gsap.to(navRef.current, {
+          y: -100,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      } else {
+        // Scrolling UP - show navbar
+        gsap.to(navRef.current, {
+          y: 0,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    /* Navigation bar container including the site logo */
-    <nav className="flex border-2 border-[#eae7d4] bg-[#2a3037] rounded-sm p-4 justify-between items-center text-[#eae7d4] relative">
+   
+    <nav 
+      ref={navRef}
+      className="flex border-2 border-[#eae7d4] bg-[#2a3037] rounded-sm p-4 justify-between items-center text-[#eae7d4] relative"
+    >
       
       {/* Logo */}
       <p className="text-lg sm:text-xl font-bold">
@@ -43,25 +84,21 @@ export default function NavBar() {
         ))}
       </ul>
 
-      {/* Hamburger Button (visible on mobile only) */}
+      {/* Hamburger Button  */}
       <button
         className="lg:hidden flex flex-col gap-1.5 z-50"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
-        {/* Top line */}
+        {/* separated lines */}
         <span
           className={`w-7 h-0.5 bg-[#eae7d4] transition-all duration-300 
             ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
         />
-
-        {/* Middle line */}
         <span
           className={`w-7 h-0.5 bg-[#eae7d4] transition-all duration-300 
             ${isOpen ? 'opacity-0' : ''}`}
         />
-
-        {/* Bottom line */}
         <span
           className={`w-7 h-0.5 bg-[#eae7d4] transition-all duration-300 
             ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}

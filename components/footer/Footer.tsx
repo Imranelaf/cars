@@ -5,6 +5,7 @@ import { useRef, useState } from "react"
 import ReachedOut from "../ui/ReachedOut"
 import Image from "next/image"
 import { useGSAP } from "@gsap/react"
+import NewsLetters from "./NewsLetter"
 
 export default function Footer() {
     const [reached, setReached] = useState(false)
@@ -105,14 +106,14 @@ export default function Footer() {
 
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-end lg:p-12">
+        <div className="w-full h-screen flex flex-col items-end lg:p-12">
             <div className="w-full h-full">
                 <div className="flex flex-col lg:items-end items-center">
                     <p className="lg:text-8xl md:text-5xl text-4xl chunko text-[]">REACHED OUT</p>
                     <div className="w-full flex lg:justify-end lg:mr-[15%] ml-[15%] rotate-3">
                         <Image src="/images/botton/contact-arrow.svg" alt="arrow" draggable={false} height={200} width={200} className="w-[5rem] md:w-[8rem] lg:w-[10rem] m-4" />
                     </div>
-                    <div className="flex lg:m-5 m-1 cursor-pointer w-full justify-end" onClick={() => clicked()} ref={button}>
+                    <div className="flex lg:m-5 m-1 cursor-pointer justify-end" onClick={() => clicked()} ref={button}>
                         <div className=" absolute justify-around">
 
                             <img src="/images/botton/button-star-1.svg" alt="botton start" ref={star1} className=" scale-10 opacity-0" />
@@ -123,6 +124,11 @@ export default function Footer() {
                     </div>
                 </div>
 
+                <div>
+                    
+                </div>
+               
+                
 
             </div>
 
@@ -143,6 +149,13 @@ export default function Footer() {
                     </div>
                 )
             }
+
+
+            <div className="w-full h-fit">
+                    
+                <NewsLetters />
+                 </div>  
+
 
         </div>
     )
