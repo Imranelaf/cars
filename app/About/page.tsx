@@ -1,5 +1,6 @@
 'use client'
 import AboutAnimation from "@/components/animations/AboutAnimation"
+import Footer from "@/components/footer/Footer"
 import ShowCastsInfo from "@/components/ui/ShowCastsInfo"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
@@ -106,6 +107,7 @@ export default function About() {
                 <ShowCastsInfo activePerson={activePerson} setActivePerson={setActivePerson} />
             }
 
+            <Footer />
 
 
         </section>

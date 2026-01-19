@@ -6,7 +6,7 @@ export default function Contact(){
     return(
        
    
-             <section className="bgColor w-full h-[87vh] flex flex-col slogan justify-center items-center">
+             <section className="bgColor w-full h-[89vh] flex flex-col slogan justify-center items-center">
                         
             <div className="text-center">
                 <h1 className="text-[#eae7d4] lg:text-6xl text-3xl text-bold">WHAT'S ON YOURS</h1>
